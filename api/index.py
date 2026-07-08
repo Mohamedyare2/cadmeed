@@ -114,6 +114,65 @@ def create_app():
 
         return render_template('admin.html')
         
+    @flask_app.route('/edit/<project_id>', methods=['GET', 'POST'])
+    def edit_project(project_id):
+        if not session.get('admin_logged_in'):
+            return redirect(url_for('login'))
+            
+        if not supabase:
+            flash("Database not connected.")
+            return redirect(url_for('gallery'))
+            
+        if request.method == 'POST':
+            name = request.form.get('name')
+            client_name = request.form.get('client')
+            city = request.form.get('city')
+            description = request.form.get('description')
+            
+            try:
+                supabase.table('projects').update({
+                    'name': name,
+                    'client': client_name,
+                    'city': city,
+                    'description': description
+                }).eq('id', project_id).execute()
+                flash("Project updated successfully!")
+            except Exception as e:
+                flash(f"Error updating project: {str(e)}")
+                
+            return redirect(url_for('gallery'))
+            
+        # GET request
+        try:
+            response = supabase.table('projects').select('*').eq('id', project_id).execute()
+            if response.data:
+                project = response.data[0]
+                return render_template('edit_project.html', project=project)
+        except:
+            pass
+            
+        flash("Project not found.")
+        return redirect(url_for('gallery'))
+
+    @flask_app.route('/delete/<project_id>', methods=['POST'])
+    def delete_project(project_id):
+        if not session.get('admin_logged_in'):
+            return redirect(url_for('login'))
+            
+        if not supabase:
+            flash("Database not connected.")
+            return redirect(url_for('gallery'))
+            
+        try:
+            # Optionally delete images from storage if you want to save space
+            # For now, deleting the db row is enough if they cascade
+            supabase.table('projects').delete().eq('id', project_id).execute()
+            flash("Project deleted successfully!")
+        except Exception as e:
+            flash(f"Error deleting project: {str(e)}")
+            
+        return redirect(url_for('gallery'))
+        
     return flask_app
 
 app = create_app()
