@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-extrabold text-brand-navy">Our Services</h1>
+            <p class="mt-4 text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive solutions for construction,
+                decoration, and design customized to your needs.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% set services = [
+            'Interior Design', 'Exterior Design', 'Gypsum Works',
+            'Aluminium & Glass Works', 'Painting & Decoration', 'Flooring Works',
+            'Office Fit-Out', 'Furniture Design', 'Electrical & Lighting',
+            'Construction & Building', 'Maintenance & Renovation', 'Project Management & Consultancy'
+            ] %}
+
+            {% for s in services %}
+            <div
+                class="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-100 hover:shadow-md hover:border-brand-gold transition duration-300">
+                <div
+                    class="w-12 h-12 bg-brand-navy text-brand-gold rounded-full flex items-center justify-center mb-4 text-xl font-bold">
+                    {{ loop.index }}
+                </div>
+                <h3 class="text-xl font-bold text-brand-navy mb-2">{{ s }}</h3>
+                <p class="text-gray-600 mb-4">High quality professional service tailored to achieve excellence in {{ s |
+                    lower }}.</p>
+                <div class="w-10 border-b-2 border-brand-gold"></div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

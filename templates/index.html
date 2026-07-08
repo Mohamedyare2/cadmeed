@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="relative bg-brand-navy overflow-hidden">
+    <!-- Background overlay if needed -->
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-navy to-brand-navy/80 z-0"></div>
+    <div
+        class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24 md:pt-32 md:pb-40 flex flex-col items-center text-center">
+        <h1 class="text-4xl md:text-6xl font-extrabold text-brand-gold mb-6 uppercase tracking-widest drop-shadow-lg">
+            Gacanka Cadmeed
+        </h1>
+        <p class="text-xl md:text-2xl text-white mb-10 max-w-3xl leading-relaxed italic">
+            "Waxaan u beddelnaa fikradahaaga naqshad qurux badan iyo dhisme tayo leh."
+        </p>
+        <div class="flex gap-4">
+            <a href="{{ url_for('services') }}" class="btn-primary flex items-center justify-center">
+                Our Services
+            </a>
+            <a href="{{ url_for('gallery') }}"
+                class="border-2 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-navy px-6 py-3 rounded-md font-semibold transition duration-300">
+                View Gallery
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="py-16 bg-white text-gray-800">
+    <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center lg:text-left flex flex-col lg:flex-row items-center gap-12">
+        <div class="lg:w-1/2">
+            <img src="{{ url_for('static', filename='IMG-20260702-WA0004.jpg') }}" alt="Gacanka Cadmeed Logo"
+                class="rounded-lg shadow-xl max-w-sm mx-auto lg:mx-0 w-full h-auto">
+        </div>
+        <div class="lg:w-1/2">
+            <h2 class="text-3xl font-bold text-brand-navy mb-6">About Us</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                At Gacanka Cadmeed Construction, Decoration and Design, we are dedicated to transforming your conceptual
+                ideas into beautiful designs and high-quality structures. Our team combines artistic vision with
+                technical expertise to deliver projects that stand the test of time.
+            </p>
+            <p class="text-lg leading-relaxed">
+                Whether it's interior decoration, comprehensive construction, or specialized exterior works, we approach
+                every project with a commitment to excellence and a passion for pushing boundaries in design and
+                utility.
+            </p>
+        </div>
+    </div>
+</section>
+{% endblock %}
