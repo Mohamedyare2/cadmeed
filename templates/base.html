@@ -164,7 +164,7 @@
     <div class="fixed top-28 right-4 z-50 flex flex-col gap-2">
         {% for message in messages %}
         <div
-            class="bg-orange/90 text-navy px-6 py-4 rounded-xl shadow-glow font-bold animate-fade-in-up border border-orange">
+            class="flash-message bg-orange/90 text-navy px-6 py-4 rounded-xl shadow-glow font-bold animate-fade-in-up border border-orange">
             {{ message }}
         </div>
         {% endfor %}
@@ -274,7 +274,7 @@
 
         // Auto-hide flashes
         setTimeout(() => {
-            const flashes = document.querySelectorAll('.animate-fade-in-up');
+            const flashes = document.querySelectorAll('.flash-message');
             flashes.forEach(f => {
                 f.style.opacity = '0';
                 f.style.transform = 'translateY(-20px)';
