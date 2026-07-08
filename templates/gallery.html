@@ -21,7 +21,7 @@
             {% endif %}
         </div>
 
-        {% if not db_connected %}
+        {% if not db_connected and session.get('admin_logged_in') %}
         <div
             class="bg-red-500/10 border border-red-500/50 text-red-200 px-6 py-4 rounded-xl mb-12 shadow-glow animate-fade-in-up">
             <strong class="font-bold">Database Error:</strong> Unable to connect to Supabase. Check your API Keys in
@@ -82,7 +82,6 @@
             {% endfor %}
         </div>
         {% else %}
-        {% if db_connected %}
         <div
             class="min-h-[40vh] flex flex-col items-center justify-center glass-card rounded-3xl animate-fade-in-up p-10 text-center border-orange/10">
             <div
@@ -93,7 +92,6 @@
             <p class="text-slate-400 max-w-md">Our gallery is currently being updated. Check back soon for our latest
                 masterpieces!</p>
         </div>
-        {% endif %}
         {% endif %}
     </div>
 </section>
