@@ -1,32 +1,56 @@
 {% extends "base.html" %}
 {% block content %}
-<section class="py-16 bg-white">
+<section class="py-20 relative overflow-hidden bg-navy">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-orange/5 rounded-full blur-[120px] pointer-events-none">
+    </div>
+
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-            <h1 class="text-4xl font-extrabold text-brand-navy">Our Services</h1>
-            <p class="mt-4 text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive solutions for construction,
-                decoration, and design customized to your needs.</p>
+
+        <div class="text-center mb-20">
+            <h4 class="text-orange font-bold tracking-widest uppercase mb-3 animate-fade-in-up">What We Do</h4>
+            <h1 class="text-5xl font-black text-white animate-fade-in-up" style="animation-delay: 0.1s">Our Premium
+                Services</h1>
+            <div class="h-1 w-24 bg-orange rounded-full mx-auto mt-6 mb-6 animate-fade-in-up"
+                style="animation-delay: 0.2s"></div>
+            <p class="text-xl text-slate-400 max-w-2xl mx-auto animate-fade-in-up" style="animation-delay: 0.3s">
+                Comprehensive solutions for construction, decoration, and design, customized precisely to your visionary
+                requirements.
+            </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 relative z-10">
             {% set services = [
             'Interior Design', 'Exterior Design', 'Gypsum Works',
-            'Aluminium & Glass Works', 'Painting & Decoration', 'Flooring Works',
-            'Office Fit-Out', 'Furniture Design', 'Electrical & Lighting',
-            'Construction & Building', 'Maintenance & Renovation', 'Project Management & Consultancy'
+            'Aluminium & Glass', 'Painting & Decor', 'Flooring Works',
+            'Office Fit-Out', 'Furniture Design', 'Electrical Systems',
+            'Construction', 'Renovation', 'Consultancy'
             ] %}
 
             {% for s in services %}
-            <div
-                class="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-100 hover:shadow-md hover:border-brand-gold transition duration-300">
+            <div class="glass-card rounded-2xl p-8 hover:-translate-y-2 hover:border-orange/50 transition-all duration-300 group flex flex-col items-start relative overflow-hidden animate-fade-in-up"
+                style="animation-delay: {{ loop.index * 0.05 }}s">
+
+                <!-- Hover Glow Background -->
                 <div
-                    class="w-12 h-12 bg-brand-navy text-brand-gold rounded-full flex items-center justify-center mb-4 text-xl font-bold">
+                    class="absolute inset-0 bg-gradient-to-br from-orange/0 to-orange/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                </div>
+
+                <div
+                    class="w-14 h-14 bg-navy text-orange rounded-2xl flex items-center justify-center mb-6 text-2xl font-black border border-white/10 group-hover:bg-orange group-hover:text-navy group-hover:border-orange transition-colors duration-300 z-10 shadow-lg">
                     {{ loop.index }}
                 </div>
-                <h3 class="text-xl font-bold text-brand-navy mb-2">{{ s }}</h3>
-                <p class="text-gray-600 mb-4">High quality professional service tailored to achieve excellence in {{ s |
-                    lower }}.</p>
-                <div class="w-10 border-b-2 border-brand-gold"></div>
+
+                <h3 class="text-xl font-bold text-white mb-3 z-10 tracking-wide">{{ s }}</h3>
+                <p class="text-sm text-slate-400 z-10 leading-relaxed font-medium">Delivering exceptional quality and
+                    expert craftsmanship precisely tailored for {{ s | lower }}.</p>
+
+                <div
+                    class="mt-6 text-orange opacity-0 transform -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 z-10">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </div>
             </div>
             {% endfor %}
         </div>

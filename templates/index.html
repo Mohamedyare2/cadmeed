@@ -1,47 +1,148 @@
 {% extends "base.html" %}
 {% block content %}
-<section class="relative bg-brand-navy overflow-hidden">
-    <!-- Background overlay if needed -->
-    <div class="absolute inset-0 bg-gradient-to-r from-brand-navy to-brand-navy/80 z-0"></div>
-    <div
-        class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24 md:pt-32 md:pb-40 flex flex-col items-center text-center">
-        <h1 class="text-4xl md:text-6xl font-extrabold text-brand-gold mb-6 uppercase tracking-widest drop-shadow-lg">
-            Gacanka Cadmeed
-        </h1>
-        <p class="text-xl md:text-2xl text-white mb-10 max-w-3xl leading-relaxed italic">
-            "Waxaan u beddelnaa fikradahaaga naqshad qurux badan iyo dhisme tayo leh."
-        </p>
-        <div class="flex gap-4">
-            <a href="{{ url_for('services') }}" class="btn-primary flex items-center justify-center">
-                Our Services
-            </a>
-            <a href="{{ url_for('gallery') }}"
-                class="border-2 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-navy px-6 py-3 rounded-md font-semibold transition duration-300">
-                View Gallery
-            </a>
+<!-- HERO SECTION -->
+<section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
+    <!-- Abstract Background Grid & Glows -->
+    <div class="absolute inset-0 bg-navy z-0">
+        <div
+            class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px]">
+        </div>
+        <div
+            class="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-orange opacity-20 blur-[100px]">
+        </div>
+        <div class="absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-blue-500 opacity-10 blur-[120px]">
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 w-full flex flex-col md:flex-row items-center gap-16 py-12">
+        <div class="md:w-3/5 text-center md:text-left animate-fade-in-up">
+            <div
+                class="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-orange font-semibold tracking-wide text-sm mb-6">
+                ✨ EXPERT CONSTRUCTION & DESIGN
+            </div>
+
+            <h1 class="text-5xl md:text-7xl font-black text-white mb-6 leading-[1.1] tracking-tight">
+                Transforming Your Ideas Into <br class="hidden lg:block">
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-orange to-yellow-400">Masterpieces</span>
+            </h1>
+
+            <p
+                class="text-xl md:text-2xl text-slate-300 mb-10 max-w-2xl leading-relaxed italic border-l-4 border-orange pl-6">
+                "Waxaan u beddelnaa fikradahaaga naqshad qurux badan iyo dhisme tayo leh."
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-5 items-center justify-center md:justify-start">
+                <a href="{{ url_for('gallery') }}" class="btn-orange w-full sm:w-auto text-lg px-8 py-4">
+                    Explore Our Projects
+                </a>
+                <a href="{{ url_for('services') }}"
+                    class="w-full sm:w-auto text-lg px-8 py-4 rounded-full font-bold text-white border-2 border-white/10 hover:border-orange hover:bg-orange/10 transition-all duration-300">
+                    View Services
+                </a>
+            </div>
+        </div>
+
+        <!-- Right Side Graphic/Images -->
+        <div class="md:w-2/5 relative animate-fade-in-up" style="animation-delay: 0.2s">
+            <div class="relative w-full aspect-square max-w-md mx-auto">
+                <div
+                    class="absolute inset-0 bg-gradient-to-tr from-orange to-purple-600 rounded-3xl rotate-6 blur-lg opacity-30 animate-pulse">
+                </div>
+                <img src="{{ url_for('static', filename='logo.jpg') }}"
+                    class="relative z-10 w-full h-full object-cover rounded-3xl border border-white/10 shadow-2xl"
+                    alt="Gacanka Cadmeed Design">
+
+                <!-- Floating Info Card -->
+                <div class="absolute -bottom-6 -left-6 z-20 glass-card p-5 rounded-2xl shadow-xl flex items-center gap-4 animate-bounce"
+                    style="animation-duration: 3s">
+                    <div
+                        class="w-12 h-12 bg-orange rounded-full flex items-center justify-center text-navy font-black text-2xl">
+                        10+</div>
+                    <div>
+                        <p class="text-white font-bold leading-tight">Years of<br>Excellence</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
-<section class="py-16 bg-white text-gray-800">
-    <div
-        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center lg:text-left flex flex-col lg:flex-row items-center gap-12">
-        <div class="lg:w-1/2">
-            <img src="{{ url_for('static', filename='IMG-20260702-WA0004.jpg') }}" alt="Gacanka Cadmeed Logo"
-                class="rounded-lg shadow-xl max-w-sm mx-auto lg:mx-0 w-full h-auto">
-        </div>
-        <div class="lg:w-1/2">
-            <h2 class="text-3xl font-bold text-brand-navy mb-6">About Us</h2>
-            <p class="text-lg leading-relaxed mb-4">
-                At Gacanka Cadmeed Construction, Decoration and Design, we are dedicated to transforming your conceptual
-                ideas into beautiful designs and high-quality structures. Our team combines artistic vision with
-                technical expertise to deliver projects that stand the test of time.
-            </p>
-            <p class="text-lg leading-relaxed">
-                Whether it's interior decoration, comprehensive construction, or specialized exterior works, we approach
-                every project with a commitment to excellence and a passion for pushing boundaries in design and
-                utility.
-            </p>
+<!-- ABOUT SECTION -->
+<section class="py-24 relative z-10 bg-navy-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row items-center gap-16">
+
+            <div class="lg:w-1/2">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="glass-card p-8 rounded-3xl text-center transform translate-y-8">
+                        <h4 class="text-4xl font-black text-orange mb-2">100+</h4>
+                        <p class="text-slate-300 font-medium">Projects Done</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-3xl text-center">
+                        <h4 class="text-4xl font-black text-orange mb-2">50+</h4>
+                        <p class="text-slate-300 font-medium">Happy Clients</p>
+                    </div>
+                    <div
+                        class="glass-card p-8 rounded-3xl text-center col-span-2 bg-gradient-to-br from-navy-accent to-navy border-orange/20 relative overflow-hidden group">
+                        <div
+                            class="absolute top-0 right-0 w-32 h-32 bg-orange/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500">
+                        </div>
+                        <h4 class="text-2xl font-bold text-white mb-2 relative z-10">Quality & Precision</h4>
+                        <p class="text-slate-400 relative z-10">We never compromise on materials or finishing.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:w-1/2">
+                <h4 class="text-orange font-bold tracking-widest uppercase mb-3">About The Company</h4>
+                <h2 class="text-4xl sm:text-5xl font-black text-white mb-6">Building the Future, Restoring the Past</h2>
+                <div class="h-1 w-20 bg-orange rounded-full mb-8"></div>
+                <p class="text-lg text-slate-300 leading-relaxed mb-6">
+                    At <strong class="text-white">Gacanka Cadmeed Construction, Decoration and Design</strong>, we are
+                    dedicated to transforming your conceptual ideas into beautiful designs and high-quality structures.
+                    Our expert team combines artistic vision with technical precision to deliver projects that stand the
+                    test of time.
+                </p>
+                <p class="text-lg text-slate-300 leading-relaxed mb-8">
+                    Whether it's luxury interior decoration, comprehensive building construction, or specialized
+                    exterior works, we approach every single project with a commitment to absolute excellence.
+                </p>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-center gap-3 text-white font-medium">
+                        <svg class="w-6 h-6 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                        Expert UI/UX Applied to Physical Spaces
+                    </li>
+                    <li class="flex items-center gap-3 text-white font-medium">
+                        <svg class="w-6 h-6 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                        Modern Decor & Flawless Gypsum
+                    </li>
+                    <li class="flex items-center gap-3 text-white font-medium">
+                        <svg class="w-6 h-6 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                        Comprehensive Project Management
+                    </li>
+                </ul>
+                <a href="{{ url_for('services') }}"
+                    class="font-bold text-orange hover:text-white transition flex items-center gap-2 group">
+                    View Complete Services
+                    <svg class="w-5 h-5 group-hover:translate-x-2 transition p" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+            </div>
+
         </div>
     </div>
 </section>
